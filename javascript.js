@@ -84,7 +84,9 @@ function playRound(humanChoice, computerChoice) { //play a round
     } else {
         alert(otherMessage);
     }
-    return alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
+    alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
+    console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
+
 }
 
 playRound(humanChoice, computerChoice);
