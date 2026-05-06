@@ -6,8 +6,10 @@ Get Computer Choice
 3. return a final value for the choice
 */
 function getRandomInt() { //Get a whole number
-    return parseInt((Math.random() * 100));
+    return parseInt((Math.random() * 99))
 }
+
+console.log(getRandomInt());
 
 function assignCpuMove() { //assign values for each choice
     let calculateCpuChoice = getRandomInt();
@@ -40,3 +42,55 @@ function getHumanChoice() {
 
 let humanChoice = getHumanChoice();
 // console.log(humanChoice);
+
+/*
+Declare the players' score variables
+*/
+
+let humanScore = 0;
+let computerScore = 0;
+
+/*
+Logic to play a single round
+1. function that caluclates cpu move and human move
+2. compare the two and determine who wins
+3. increment the winner's score by one
+4. show current scores at end of round
+*/
+
+function playRound(humanChoice, computerChoice) { //play a round
+    let winMessage = "You won this round!"
+    let loseMessage = "You lost this round!"
+    let otherMessage = "Please enter a valid choice."
+    if (humanChoice.toLowerCase() === computerChoice) { //compare the two and determine who wins + edit score
+        alert("Draw!");
+    } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "scissors") {
+        alert(winMessage);
+        ++humanScore;
+    } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") {
+        alert(loseMessage);
+        ++computerScore;
+    } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "rock") {
+        alert(winMessage);
+        ++humanScore;
+    } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") {
+        alert(loseMessage);
+        ++computerScore;
+    } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "paper") {
+        alert(winMessage);
+        ++humanScore;
+    } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") {
+        alert(loseMessage);
+        ++computerScore;
+    } else {
+        alert(otherMessage);
+    }
+    
+    return alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
+    
+}
+
+// console.log(humanChoice);
+// console.log(computerChoice);
+// console.log(humanScore);
+// console.log(computerScore);
