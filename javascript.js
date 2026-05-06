@@ -5,19 +5,18 @@ Get Computer Choice
 2. Define values for each choice 1-33, 34-66, 67-99
 3. return a final value for the choice
 */
+
 function getRandomInt() { //Get a whole number
     return parseInt((Math.random() * 99))
 }
 
-console.log(getRandomInt());
-
 function assignCpuMove() { //assign values for each choice
     let calculateCpuChoice = getRandomInt();
-    if ((calculateCpuChoice <= 33) && (calculateCpuChoice >=1)) {
+    if ((calculateCpuChoice <= 32) && (calculateCpuChoice >=0)) {
         return "rock";
-    } else if ((calculateCpuChoice <= 66) && (calculateCpuChoice >=34)) {
+    } else if ((calculateCpuChoice <= 65) && (calculateCpuChoice >=33)) {
         return "paper";
-    } else if ((calculateCpuChoice <= 99) && (calculateCpuChoice >=67))
+    } else if ((calculateCpuChoice <= 98) && (calculateCpuChoice >=66))
         return "scissors";
 }
 
@@ -85,11 +84,10 @@ function playRound(humanChoice, computerChoice) { //play a round
     } else {
         alert(otherMessage);
     }
-    
     return alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-    
 }
 
+playRound(humanChoice, computerChoice);
 // console.log(humanChoice);
 // console.log(computerChoice);
 // console.log(humanScore);
