@@ -102,12 +102,14 @@ function playRound(humanChoice, computerChoice) { //play a round
     }
 }
 
+//Say score up to this point and play the next round
 function endRound() {
     alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
     console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
     playGame();
 }
 
+//Determine if another round should be played or if the game is over (and state the winner)
 function playGame() {
     if (roundCounter == 5) {
         if (humanScore > computerScore) {
