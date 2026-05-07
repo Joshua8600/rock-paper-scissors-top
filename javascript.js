@@ -24,7 +24,7 @@ function getComputerChoice() { //return a final value for the choice
     return assignCpuMove();
 }
 
-let computerChoice = getComputerChoice();
+let computerChoice
 // console.log(computerChoice);
 
 /*
@@ -39,7 +39,7 @@ function getHumanChoice() {
     return calculateHumanChoice; //return a value for comparison against CPU Move
 }
 
-let humanChoice = getHumanChoice();
+let humanChoice
 // console.log(humanChoice);
 
 /*
