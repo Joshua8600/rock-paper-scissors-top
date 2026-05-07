@@ -65,57 +65,47 @@ function playRound(humanChoice, computerChoice) { //play a round
     if (humanChoice.toLowerCase() === computerChoice) { //compare the two and determine who wins + edit score
         alert("Draw!");
         ++roundCounter;
-        alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-        console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
-        playGame();
+        endRound();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "scissors") {
         alert(winMessage);
         ++humanScore;
         ++roundCounter;
-        alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-        console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
-        playGame();
+        endRound();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") {
         alert(loseMessage);
         ++computerScore;
         ++roundCounter;
-        alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-        console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
-        playGame();
+        endRound();
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "rock") {
         alert(winMessage);
         ++humanScore;
         ++roundCounter;
-        alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-        console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
-        playGame();
+        endRound();
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") {
         alert(loseMessage);
         ++computerScore;
         ++roundCounter;
-        alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-        console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
-        playGame();
+        endRound();
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "paper") {
         alert(winMessage);
         ++humanScore;
         ++roundCounter;
-        alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-        console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
-        playGame();
+        endRound();
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") {
         alert(loseMessage);
         ++computerScore;
         ++roundCounter;
-        alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-        console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
-        playGame();
+        endRound();
     } else {
         alert(otherMessage);
-        alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-        console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
-        playGame();
+        endRound();
     }
+}
+
+function endRound() {
+    alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
+    console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
+    playGame();
 }
 
 function playGame() {
@@ -135,7 +125,6 @@ function playGame() {
 }
 
 playGame();
-//playRound(humanChoice, computerChoice);
 //For testing as development continues
 // console.log(humanChoice);
 // console.log(computerChoice);
