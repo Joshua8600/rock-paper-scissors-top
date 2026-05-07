@@ -48,6 +48,7 @@ Declare the players' score variables
 
 let humanScore = 0;
 let computerScore = 0;
+let roundCounter = 0
 
 /*
 Logic to play a single round
@@ -63,33 +64,66 @@ function playRound(humanChoice, computerChoice) { //play a round
     let otherMessage = "Please enter a valid choice."
     if (humanChoice.toLowerCase() === computerChoice) { //compare the two and determine who wins + edit score
         alert("Draw!");
+        ++roundCounter;
+        playGame();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "scissors") {
         alert(winMessage);
         ++humanScore;
+        ++roundCounter;
+        playGame();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") {
         alert(loseMessage);
         ++computerScore;
+        ++roundCounter;
+        playGame();
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "rock") {
         alert(winMessage);
         ++humanScore;
+        ++roundCounter;
+        playGame();
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") {
         alert(loseMessage);
         ++computerScore;
+        ++roundCounter;
+        playGame();
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "paper") {
         alert(winMessage);
         ++humanScore;
+        ++roundCounter;
+        playGame();
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") {
         alert(loseMessage);
         ++computerScore;
+        ++roundCounter;
+        playGame();
     } else {
         alert(otherMessage);
+        playGame();
     }
     alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
     console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
 
 }
 
-playRound(humanChoice, computerChoice);
+function playGame() {
+    if (roundCounter == 5) {
+        if (humanScore > computerScore) {
+            alert("You win!");
+        } else if (computerScore > humanScore) {
+            alert("You lose!");
+        } else if (computerScore == humanScore) {
+            alert("The game is a draw!");
+        }
+    } else if (roundCounter < 5) {
+        humanChoice = getHumanChoice();
+        computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+    }
+}
+
+playGame();
+//playRound(humanChoice, computerChoice);
+//For testing as development continues
 // console.log(humanChoice);
 // console.log(computerChoice);
 // console.log(humanScore);
