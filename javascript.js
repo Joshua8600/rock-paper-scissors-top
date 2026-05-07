@@ -36,7 +36,7 @@ Get Human Choice
 
 function getHumanChoice() {
     let calculateHumanChoice = prompt("Rock, paper, or scissors?", "Enter a choice."); //prompt for human player to enter
-    return calculateHumanChoice; //return a value for comparison against CPU Move
+    return String(calculateHumanChoice); //return a value for comparison against CPU Move
 }
 
 let humanChoice
