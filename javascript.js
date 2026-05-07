@@ -125,8 +125,3 @@ function playGame() {
 }
 
 playGame();
-//For testing as development continues
-// console.log(humanChoice);
-// console.log(computerChoice);
-// console.log(humanScore);
-// console.log(computerScore);
