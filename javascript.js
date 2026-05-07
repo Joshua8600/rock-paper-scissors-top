@@ -127,3 +127,6 @@ function playGame() {
 }
 
 playGame();
+
+// To-Do
+// 1. add a confirmation to play again
