@@ -128,5 +128,7 @@ function playGame() {
 
 playGame();
 
-// To-Do
-// 1. add a confirmation to play again
+//To-Do
+//1. add a confirmation to play again
+//2. If the game is cancelled, prompt to refresh to start over
+//3. prompt to refresh to to play again when it ends
