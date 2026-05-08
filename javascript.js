@@ -36,6 +36,7 @@ Get Human Choice
 function getHumanChoice() {
     let calculateHumanChoice = prompt("Rock, paper, or scissors?", "Enter a choice."); //prompt for human player to enter
     return String(calculateHumanChoice); //return a value for comparison against CPU Move
+        //string conversion to account for "null" when prompt is cancelled
 }
 
 let humanChoice
@@ -135,3 +136,4 @@ playGame();
 //5. If an invalid entry is entered, skip the showing scores part of the loop
     //feedback from TOP Discord server
 //6. In a best of 5, 3 points wins no matter what. End game early, with new message, and declare winner once human or CPU reaches 3 points.
+//7. Say what the computer chose each round when it says the results of the round
