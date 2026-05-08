@@ -134,3 +134,4 @@ playGame();
     //feedback from TOP Discord server
 //5. If an invalid entry is entered, skip the showing scores part of the loop
     //feedback from TOP Discord server
+//6. In a best of 5, 3 points wins no matter what. End game early, with new message, and declare winner once human or CPU reaches 3 points.
