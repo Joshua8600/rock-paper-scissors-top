@@ -25,7 +25,6 @@ function getComputerChoice() { //return a final value for the choice
 }
 
 let computerChoice
-// console.log(computerChoice);
 
 /*
 Get Human Choice
@@ -40,7 +39,6 @@ function getHumanChoice() {
 }
 
 let humanChoice
-// console.log(humanChoice);
 
 /*
 Declare the players' score variables
@@ -132,3 +130,7 @@ playGame();
 //1. add a confirmation to play again
 //2. If the game is cancelled, prompt to refresh to start over
 //3. prompt to refresh to to play again when it ends
+//4. Initial prompt message - remove/change default value, and possibly give more guidance in the prompt message itself
+    //feedback from TOP Discord server
+//5. If an invalid entry is entered, skip the showing scores part of the loop
+    //feedback from TOP Discord server
