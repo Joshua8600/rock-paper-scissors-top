@@ -137,3 +137,5 @@ playGame();
     //feedback from TOP Discord server
 //6. In a best of 5, 3 points wins no matter what. End game early, with new message, and declare winner once human or CPU reaches 3 points.
 //7. Say what the computer chose each round when it says the results of the round
+//8. Prompt to set the total round number for the game. instead of defaulting to only 5
+//9. Expansion of item (6) where if impossible to win with remaining rounds (2-0 with 1 round left), it automatically ends and declares winner.
