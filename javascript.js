@@ -23,9 +23,9 @@ let humanScore = 0;
 let computerScore = 0;
 let roundCounter = 0
 
-let winMessage = "You won this round!"
-let loseMessage = "You lost this round!"
-let drawMessage = "Draw! Next round!"
+let winMessage = "Game Status: You won this round!"
+let loseMessage = "Game Status: You lost this round!"
+let drawMessage = "Game Status: Draw! Next round!"
 
 function playRound(humanChoice, computerChoice) { //play a round
     if (humanChoice.toLowerCase() === computerChoice) { //compare the two and determine who wins + edit score
@@ -34,6 +34,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         humanScoreDisplay.textContent = `Your score: ${humanScore}`;
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+        consoleDisplay.textContent = drawMessage;
         //endRound();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "scissors") {
         //alert(winMessage);
@@ -42,6 +43,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         humanScoreDisplay.textContent = `Your score: ${humanScore}`;
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+        consoleDisplay.textContent = winMessage;
         //endRound();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") {
         //alert(loseMessage);
@@ -50,6 +52,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         humanScoreDisplay.textContent = `Your score: ${humanScore}`;
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+        consoleDisplay.textContent = loseMessage;
         //endRound();
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "rock") {
         //alert(winMessage);
@@ -58,6 +61,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         humanScoreDisplay.textContent = `Your score: ${humanScore}`;
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+        consoleDisplay.textContent = winMessage;
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") {
         //alert(loseMessage);
         ++computerScore;
@@ -65,6 +69,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         humanScoreDisplay.textContent = `Your score: ${humanScore}`;
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+        consoleDisplay.textContent = loseMessage;
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "paper") {
         //alert(winMessage);
         ++humanScore;
@@ -72,6 +77,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         humanScoreDisplay.textContent = `Your score: ${humanScore}`;
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+        consoleDisplay.textContent = winMessage;
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") {
         //alert(loseMessage);
         ++computerScore;
@@ -79,6 +85,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         humanScoreDisplay.textContent = `Your score: ${humanScore}`;
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+        consoleDisplay.textContent = loseMessage;
     }
 }
 
@@ -86,9 +93,10 @@ let body = document.querySelector("body");
 let rockButton = document.createElement("button");
 let paperButton = document.createElement("button");
 let scissorsButton = document.createElement("button");
-let humanScoreDisplay = document.createElement("h4");
-let computerScoreDisplay = document.createElement("h4");
+let humanScoreDisplay = document.createElement("h3");
+let computerScoreDisplay = document.createElement("h3");
 let roundCounterDisplay = document.createElement("h3");
+let consoleDisplay = document.createElement("h3");
 
 
 //Start Game
@@ -113,17 +121,19 @@ startButton.addEventListener("click", () => {
     body.appendChild(computerScoreDisplay);
     roundCounterDisplay.textContent = `Round: ${roundCounter}`;
     body.appendChild(roundCounterDisplay);
+    consoleDisplay.textContent = "Game Status: Not Started"
+    body.appendChild(consoleDisplay);
 })
 
 function playGame() {
     let finishMessage = document.createElement("h1");
     body.appendChild(finishMessage);
     if (humanScore == 5 || computerScore == 5) {
-        finishMessage.textContent = "Game Over! "
+        finishMessage.innerText = `Game Over!\n`;
         if (humanScore == 5) {
-            finishMessage.textContent += "You win! Congratulations!";
+            finishMessage.innerText += `You win!\nCongratulations!`;
         } else {
-            finishMessage.textContent += "You Lose! Computer Wins! Try again next time!"
+            finishMessage.innerText += `You Lose!\nComputer Wins!\nTry again next time!`;
         }
     } else {
         playRound(humanChoice, computerChoice);
