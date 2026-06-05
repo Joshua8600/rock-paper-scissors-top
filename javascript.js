@@ -152,10 +152,26 @@ startButton.addEventListener("click", () => {
     body.appendChild(roundCounterDisplay);
 })
 
+function finishGame() {
+    let finishMessage = document.createElement("h1");
+    body.appendChild(finishMessage);
+    if (humanScore == 5 || computerScore == 5) {
+        finishMessage.textContent = "Game Over! "
+        if (humanScore == 5) {
+            finishMessage.textContent += "You win! Congratulations!";
+        } else {
+            finishMessage.textContent += "You Lose! Computer Wins! Try again next time!"
+        }
+    } else {
+        playRound(humanChoice, computerChoice);
+    }
+} 
+
+
 rockButton.addEventListener("click", () => {
     humanChoice = "rock";
     computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+    finishGame();
     //console.log(humanChoice);
     //console.log(computerChoice);
     });
@@ -163,14 +179,14 @@ rockButton.addEventListener("click", () => {
 paperButton.addEventListener("click", () => {
     humanChoice = "paper";
     computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+    finishGame();
     //console.log(humanChoice);
     //console.log(computerChoice);
 });
 scissorsButton.addEventListener("click", () => {
     humanChoice = "scissors";
     computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+    finishGame();
     //console.log(humanChoice);
     //console.log(computerChoice);
 });
