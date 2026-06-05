@@ -17,13 +17,6 @@ function getComputerChoice() {
 }
 
 let computerChoice
-
-function getHumanChoice() {
-    let calculateHumanChoice = prompt("Rock, paper, or scissors?", "Enter a choice."); //prompt for human player to enter
-    return String(calculateHumanChoice); //return a value for comparison against CPU Move
-        //string conversion to account for "null" when prompt is cancelled
-}
-
 let humanChoice
 
 let humanScore = 0;
@@ -32,7 +25,6 @@ let roundCounter = 0
 
 let winMessage = "You won this round!"
 let loseMessage = "You lost this round!"
-let otherMessage = "Please enter a valid choice."
 let drawMessage = "Draw! Next round!"
 
 function playRound(humanChoice, computerChoice) { //play a round
@@ -87,37 +79,8 @@ function playRound(humanChoice, computerChoice) { //play a round
         humanScoreDisplay.textContent = `Your score: ${humanScore}`;
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
-    } else {
-        //alert(otherMessage);
-        //endRound();
     }
 }
-
-//function not needed anymore? replace all instances of endRound to playGame
-function endRound() {
-    //alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-    //console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
-    playGame();
-}
-
-function playGame() {
-    if (humanScore == 5 || computerScore == 5) {
-        if (humanScore > computerScore) {
-            alert("You win!");
-        } else if (computerScore > humanScore) {
-            alert("You lose!");
-        } 
-        //else if (computerScore == humanScore) {
-        //     alert("The game is a draw!");
-        // }
-    } else {
-        humanChoice = getHumanChoice();
-        computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-    }
-}
-
-
 
 let body = document.querySelector("body");
 let rockButton = document.createElement("button");
@@ -152,7 +115,7 @@ startButton.addEventListener("click", () => {
     body.appendChild(roundCounterDisplay);
 })
 
-function finishGame() {
+function playGame() {
     let finishMessage = document.createElement("h1");
     body.appendChild(finishMessage);
     if (humanScore == 5 || computerScore == 5) {
@@ -171,7 +134,7 @@ function finishGame() {
 rockButton.addEventListener("click", () => {
     humanChoice = "rock";
     computerChoice = getComputerChoice();
-    finishGame();
+    playGame();
     //console.log(humanChoice);
     //console.log(computerChoice);
     });
@@ -179,14 +142,14 @@ rockButton.addEventListener("click", () => {
 paperButton.addEventListener("click", () => {
     humanChoice = "paper";
     computerChoice = getComputerChoice();
-    finishGame();
+    playGame();
     //console.log(humanChoice);
     //console.log(computerChoice);
 });
 scissorsButton.addEventListener("click", () => {
     humanChoice = "scissors";
     computerChoice = getComputerChoice();
-    finishGame();
+    playGame();
     //console.log(humanChoice);
     //console.log(computerChoice);
 });
