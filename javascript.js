@@ -1,16 +1,8 @@
-/*
-Get Computer Choice
-
-1. Get whole number
-2. Define values for each choice 1-33, 34-66, 67-99
-3. return a final value for the choice
-*/
-
-function getRandomInt() { //Get a whole number
+function getRandomInt() {
     return parseInt((Math.random() * 99))
 }
 
-function assignCpuMove() { //assign values for each choice
+function assignCpuMove() {
     let calculateCpuChoice = getRandomInt();
     if ((calculateCpuChoice <= 32) && (calculateCpuChoice >=0)) {
         return "rock";
@@ -20,18 +12,11 @@ function assignCpuMove() { //assign values for each choice
         return "scissors";
 }
 
-function getComputerChoice() { //return a final value for the choice
+function getComputerChoice() {
     return assignCpuMove();
 }
 
 let computerChoice
-
-/*
-Get Human Choice
-
-1. Prompt for human player to enter
-2. return a value for comparison against CPU Move
-*/
 
 function getHumanChoice() {
     let calculateHumanChoice = prompt("Rock, paper, or scissors?", "Enter a choice."); //prompt for human player to enter
@@ -41,21 +26,9 @@ function getHumanChoice() {
 
 let humanChoice
 
-/*
-Declare the players' score variables
-*/
-
 let humanScore = 0;
 let computerScore = 0;
 let roundCounter = 0
-
-/*
-Logic to play a single round
-1. function that caluclates cpu move and human move
-2. compare the two and determine who wins
-3. increment the winner's score by one
-4. show current scores at end of round
-*/
 
 let winMessage = "You won this round!"
 let loseMessage = "You lost this round!"
@@ -66,44 +39,60 @@ function playRound(humanChoice, computerChoice) { //play a round
     if (humanChoice.toLowerCase() === computerChoice) { //compare the two and determine who wins + edit score
         //alert("Draw!");
         ++roundCounter;
-        endRound();
+        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+        computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
+        roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+        //endRound();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "scissors") {
         //alert(winMessage);
         ++humanScore;
         ++roundCounter;
-        endRound();
+        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+        computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
+        roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+        //endRound();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") {
         //alert(loseMessage);
         ++computerScore;
         ++roundCounter;
-        endRound();
+        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+        computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
+        roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+        //endRound();
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "rock") {
         //alert(winMessage);
         ++humanScore;
         ++roundCounter;
-        endRound();
+        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+        computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
+        roundCounterDisplay.textContent = `Round: ${roundCounter}`;
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") {
         //alert(loseMessage);
         ++computerScore;
         ++roundCounter;
-        endRound();
+        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+        computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
+        roundCounterDisplay.textContent = `Round: ${roundCounter}`;
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "paper") {
         //alert(winMessage);
         ++humanScore;
         ++roundCounter;
-        endRound();
+        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+        computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
+        roundCounterDisplay.textContent = `Round: ${roundCounter}`;
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") {
         //alert(loseMessage);
         ++computerScore;
         ++roundCounter;
-        endRound();
+        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+        computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
+        roundCounterDisplay.textContent = `Round: ${roundCounter}`;
     } else {
         //alert(otherMessage);
-        endRound();
+        //endRound();
     }
 }
 
-//Say score up to this point and play the next round
 //function not needed anymore? replace all instances of endRound to playGame
 function endRound() {
     //alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
@@ -111,7 +100,6 @@ function endRound() {
     playGame();
 }
 
-//Determine if another round should be played or if the game is over (and state the winner)
 function playGame() {
     if (humanScore == 5 || computerScore == 5) {
         if (humanScore > computerScore) {
@@ -164,6 +152,28 @@ startButton.addEventListener("click", () => {
     body.appendChild(roundCounterDisplay);
 })
 
+rockButton.addEventListener("click", () => {
+    humanChoice = "rock";
+    computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    //console.log(humanChoice);
+    //console.log(computerChoice);
+    });
+
+paperButton.addEventListener("click", () => {
+    humanChoice = "paper";
+    computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    //console.log(humanChoice);
+    //console.log(computerChoice);
+});
+scissorsButton.addEventListener("click", () => {
+    humanChoice = "scissors";
+    computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    //console.log(humanChoice);
+    //console.log(computerChoice);
+});
 
 
 
