@@ -128,26 +128,36 @@ function playGame() {
 
 
 let body = document.querySelector("body");
+let rockButton = document.createElement("button");
+let paperButton = document.createElement("button");
+let scissorsButton = document.createElement("button");
+let humanScoreDisplay = document.createElement("h4");
+let computerScoreDisplay = document.createElement("h4");
+let roundCounterDisplay = document.createElement("h3");
+
 
 //Start Game
 let startButton = document.querySelector(".start-button");
 startButton.addEventListener("click", () => {
-    let rockButton = document.createElement("button");
     rockButton.classList.add("rock-button");
     rockButton.classList.add("choice-button");
     rockButton.textContent = "Rock";
     body.appendChild(rockButton);
-    let paperButton = document.createElement("button");
     paperButton.classList.add("paper-button");
     paperButton.classList.add("choice-button");
     paperButton.textContent = "Paper";
     body.appendChild(paperButton);
-    let scissorsButton = document.createElement("button");
     scissorsButton.classList.add("scissors-button");
     scissorsButton.classList.add("choice-button");
     scissorsButton.textContent = "Scissors";
     body.appendChild(scissorsButton);
     body.removeChild(startButton);
+    humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+    body.appendChild(humanScoreDisplay);
+    computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
+    body.appendChild(computerScoreDisplay);
+    roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+    body.appendChild(roundCounterDisplay);
 })
 
 
@@ -157,6 +167,9 @@ startButton.addEventListener("click", () => {
 
 
 //playGame(); //Temp comment out when developing the GUI
+
+
+
 
 //To-Do
 //1. add a confirmation to play again
