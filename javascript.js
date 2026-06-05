@@ -125,7 +125,38 @@ function playGame() {
     }
 }
 
-playGame();
+
+
+let body = document.querySelector("body");
+
+//Start Game
+let startButton = document.querySelector(".start-button");
+startButton.addEventListener("click", () => {
+    let rockButton = document.createElement("button");
+    rockButton.classList.add("rock-button");
+    rockButton.classList.add("choice-button");
+    rockButton.textContent = "Rock";
+    body.appendChild(rockButton);
+    let paperButton = document.createElement("button");
+    paperButton.classList.add("paper-button");
+    paperButton.classList.add("choice-button");
+    paperButton.textContent = "Paper";
+    body.appendChild(paperButton);
+    let scissorsButton = document.createElement("button");
+    scissorsButton.classList.add("scissors-button");
+    scissorsButton.classList.add("choice-button");
+    scissorsButton.textContent = "Scissors";
+    body.appendChild(scissorsButton);
+    body.removeChild(startButton);
+})
+
+
+
+
+
+
+
+//playGame(); //Temp comment out when developing the GUI
 
 //To-Do
 //1. add a confirmation to play again
