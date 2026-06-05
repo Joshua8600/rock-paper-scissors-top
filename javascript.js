@@ -57,68 +57,72 @@ Logic to play a single round
 4. show current scores at end of round
 */
 
+let winMessage = "You won this round!"
+let loseMessage = "You lost this round!"
+let otherMessage = "Please enter a valid choice."
+let drawMessage = "Draw! Next round!"
+
 function playRound(humanChoice, computerChoice) { //play a round
-    let winMessage = "You won this round!"
-    let loseMessage = "You lost this round!"
-    let otherMessage = "Please enter a valid choice."
     if (humanChoice.toLowerCase() === computerChoice) { //compare the two and determine who wins + edit score
-        alert("Draw!");
+        //alert("Draw!");
         ++roundCounter;
         endRound();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "scissors") {
-        alert(winMessage);
+        //alert(winMessage);
         ++humanScore;
         ++roundCounter;
         endRound();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") {
-        alert(loseMessage);
+        //alert(loseMessage);
         ++computerScore;
         ++roundCounter;
         endRound();
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "rock") {
-        alert(winMessage);
+        //alert(winMessage);
         ++humanScore;
         ++roundCounter;
         endRound();
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") {
-        alert(loseMessage);
+        //alert(loseMessage);
         ++computerScore;
         ++roundCounter;
         endRound();
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "paper") {
-        alert(winMessage);
+        //alert(winMessage);
         ++humanScore;
         ++roundCounter;
         endRound();
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") {
-        alert(loseMessage);
+        //alert(loseMessage);
         ++computerScore;
         ++roundCounter;
         endRound();
     } else {
-        alert(otherMessage);
+        //alert(otherMessage);
         endRound();
     }
 }
 
 //Say score up to this point and play the next round
+//function not needed anymore? replace all instances of endRound to playGame
 function endRound() {
-    alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
-    console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
+    //alert(`Your score: ${humanScore}. Opponent's score: ${computerScore}`); //return score
+    //console.log(`Your score: ${humanScore}. Opponent's score: ${computerScore}`);
     playGame();
 }
 
 //Determine if another round should be played or if the game is over (and state the winner)
 function playGame() {
-    if (roundCounter == 5) {
+    if (humanScore == 5 || computerScore == 5) {
         if (humanScore > computerScore) {
             alert("You win!");
         } else if (computerScore > humanScore) {
             alert("You lose!");
-        } else if (computerScore == humanScore) {
-            alert("The game is a draw!");
-        }
-    } else if (roundCounter < 5) {
+        } 
+        //else if (computerScore == humanScore) {
+        //     alert("The game is a draw!");
+        // }
+    } else {
         humanChoice = getHumanChoice();
         computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
