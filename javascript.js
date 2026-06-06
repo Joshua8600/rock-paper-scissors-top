@@ -5,11 +5,11 @@ function getRandomInt() {
 function assignCpuMove() {
     let calculateCpuChoice = getRandomInt();
     if ((calculateCpuChoice <= 32) && (calculateCpuChoice >=0)) {
-        return "rock";
+        return "Rock";
     } else if ((calculateCpuChoice <= 65) && (calculateCpuChoice >=33)) {
-        return "paper";
+        return "Paper";
     } else if ((calculateCpuChoice <= 98) && (calculateCpuChoice >=66))
-        return "scissors";
+        return "Scissors";
 }
 
 function getComputerChoice() {
@@ -31,27 +31,27 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         consoleDisplay.textContent = drawMessage;
         roundCleanup();
-    } else if (humanChoice == "rock" && computerChoice == "scissors") {
+    } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
         ++humanScore;
         consoleDisplay.textContent = winMessage;
         roundCleanup();
-    } else if (humanChoice == "rock" && computerChoice == "paper") {
+    } else if (humanChoice == "Rock" && computerChoice == "Paper") {
         ++computerScore;
         consoleDisplay.textContent = loseMessage;
         roundCleanup();
-    } else if (humanChoice == "paper" && computerChoice == "rock") {
+    } else if (humanChoice == "Paper" && computerChoice == "Rock") {
         ++humanScore;
         consoleDisplay.textContent = winMessage;
         roundCleanup();
-    } else if (humanChoice == "paper" && computerChoice == "scissors") {
+    } else if (humanChoice == "Paper" && computerChoice == "Scissors") {
         ++computerScore;
         consoleDisplay.textContent = loseMessage;
         roundCleanup();
-    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+    } else if (humanChoice == "Scissors" && computerChoice == "Paper") {
         ++humanScore;
         consoleDisplay.textContent = winMessage;
         roundCleanup();
-    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+    } else if (humanChoice == "Scissors" && computerChoice == "Rock") {
         ++computerScore;
         consoleDisplay.textContent = loseMessage;
         roundCleanup();
@@ -63,6 +63,8 @@ function roundCleanup() {
     humanScoreDisplay.textContent = `Your score: ${humanScore}`;
     computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
     roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+    humanChoiceDisplay.textContent = `Your Choice: ${humanChoice}`
+    computerChoiceDisplay.textContent = `Opponent's Choice: ${computerChoice}`
     checkGameStatus();
 }
 
@@ -75,7 +77,9 @@ let computerScoreDisplay = document.createElement("h3");
 let roundCounterDisplay = document.createElement("h3");
 let consoleDisplay = document.createElement("h3");
 let finishMessage = document.createElement("h1");
-let restartButton = document.createElement("button");
+let playAgainButton = document.createElement("button");
+let humanChoiceDisplay = document.createElement("h3");
+let computerChoiceDisplay = document.createElement("h3");
 
 
 let startButton = document.querySelector(".start-button");
@@ -103,6 +107,10 @@ function startGame() {
     body.appendChild(roundCounterDisplay);
     consoleDisplay.textContent = "Game Status: Not Started"
     body.appendChild(consoleDisplay);
+    humanChoiceDisplay.textContent = "Your Choice: N/A"
+    body.appendChild(humanChoiceDisplay);
+    computerChoiceDisplay.textContent = "Opponent's Choice: N/A"
+    body.appendChild(computerChoiceDisplay);
 }
 
 function checkGameStatus() {
@@ -127,11 +135,13 @@ function endGame() {
     body.removeChild(computerScoreDisplay);
     body.removeChild(roundCounterDisplay);
     body.removeChild(consoleDisplay);
-    restartButton.textContent = "Play again?";
-    body.appendChild(restartButton);
+    body.removeChild(humanChoiceDisplay);
+    body.removeChild(computerChoiceDisplay);
+    playAgainButton.textContent = "Play again?";
+    body.appendChild(playAgainButton);
 }
 
-restartButton.addEventListener("click", restartGame);
+playAgainButton.addEventListener("click", restartGame);
 
 function restartGame() {
     location.reload();
@@ -139,18 +149,18 @@ function restartGame() {
 
 
 rockButton.addEventListener("click", () => {
-    humanChoice = "rock";
+    humanChoice = "Rock";
     computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
     });
 
 paperButton.addEventListener("click", () => {
-    humanChoice = "paper";
+    humanChoice = "Paper";
     computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
 });
 scissorsButton.addEventListener("click", () => {
-    humanChoice = "scissors";
+    humanChoice = "Scissors";
     computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
 });
@@ -159,3 +169,4 @@ scissorsButton.addEventListener("click", () => {
 //To-Do
 //1. Say what the computer chose each round when it says the results of the round
 //2. intro text, first to 5 wins, etc.
+//3. add a restart game button
