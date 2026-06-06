@@ -60,8 +60,8 @@ function playRound(humanChoice, computerChoice) {
 
 function roundCleanup() {
     ++roundCounter;
-    humanScoreDisplay.textContent = `Your score: ${humanScore}`;
-    computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
+    humanScoreDisplay.textContent = `Your Score: ${humanScore}`;
+    computerScoreDisplay.textContent = `Opponent's Score: ${computerScore}`;
     roundCounterDisplay.textContent = `Round: ${roundCounter}`;
     humanChoiceDisplay.textContent = `Your Choice: ${humanChoice}`
     computerChoiceDisplay.textContent = `Opponent's Choice: ${computerChoice}`
@@ -80,6 +80,10 @@ let finishMessage = document.createElement("h1");
 let playAgainButton = document.createElement("button");
 let humanChoiceDisplay = document.createElement("h3");
 let computerChoiceDisplay = document.createElement("h3");
+let selectionBox = document.createElement("div");
+let choicesDisplayBox = document.createElement("div");
+let scoresDisplayBox = document.createElement("div");
+let systemDisplayBox = document.createElement("div");
 
 
 let startButton = document.querySelector(".start-button");
@@ -89,28 +93,36 @@ function startGame() {
     rockButton.classList.add("rock-button");
     rockButton.classList.add("choice-button");
     rockButton.textContent = "Rock";
-    body.appendChild(rockButton);
+    selectionBox.appendChild(rockButton);
     paperButton.classList.add("paper-button");
     paperButton.classList.add("choice-button");
     paperButton.textContent = "Paper";
-    body.appendChild(paperButton);
+    selectionBox.appendChild(paperButton);
     scissorsButton.classList.add("scissors-button");
     scissorsButton.classList.add("choice-button");
     scissorsButton.textContent = "Scissors";
-    body.appendChild(scissorsButton);
-    body.removeChild(startButton);
-    humanScoreDisplay.textContent = `Your score: ${humanScore}`;
-    body.appendChild(humanScoreDisplay);
-    computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
-    body.appendChild(computerScoreDisplay);
-    roundCounterDisplay.textContent = `Round: ${roundCounter}`;
-    body.appendChild(roundCounterDisplay);
-    consoleDisplay.textContent = "Game Status: Not Started"
-    body.appendChild(consoleDisplay);
+    selectionBox.appendChild(scissorsButton);
+    selectionBox.classList.add("selection-box");
+    body.appendChild(selectionBox);
     humanChoiceDisplay.textContent = "Your Choice: N/A"
-    body.appendChild(humanChoiceDisplay);
+    choicesDisplayBox.appendChild(humanChoiceDisplay);
     computerChoiceDisplay.textContent = "Opponent's Choice: N/A"
-    body.appendChild(computerChoiceDisplay);
+    choicesDisplayBox.appendChild(computerChoiceDisplay);
+    choicesDisplayBox.classList.add("choices-display-box");
+    body.appendChild(choicesDisplayBox);
+    humanScoreDisplay.textContent = `Your Score: ${humanScore}`;
+    scoresDisplayBox.appendChild(humanScoreDisplay);
+    computerScoreDisplay.textContent = `Opponent's Score: ${computerScore}`;
+    scoresDisplayBox.appendChild(computerScoreDisplay);
+    scoresDisplayBox.classList.add("scores-display-box");
+    body.appendChild(scoresDisplayBox);
+    roundCounterDisplay.textContent = `Round: ${roundCounter}`;
+    systemDisplayBox.appendChild(roundCounterDisplay);
+    consoleDisplay.textContent = "Game Status: Not Started"
+    systemDisplayBox.appendChild(consoleDisplay);
+    systemDisplayBox.classList.add("system-display-box");
+    body.appendChild(systemDisplayBox);
+    body.removeChild(startButton);
 }
 
 function checkGameStatus() {
@@ -128,15 +140,10 @@ function checkGameStatus() {
 }
 
 function endGame() {
-    body.removeChild(rockButton);
-    body.removeChild(paperButton);
-    body.removeChild(scissorsButton);
-    body.removeChild(humanScoreDisplay);
-    body.removeChild(computerScoreDisplay);
-    body.removeChild(roundCounterDisplay);
-    body.removeChild(consoleDisplay);
-    body.removeChild(humanChoiceDisplay);
-    body.removeChild(computerChoiceDisplay);
+    body.removeChild(selectionBox);
+    body.removeChild(choicesDisplayBox);
+    body.removeChild(scoresDisplayBox);
+    body.removeChild(systemDisplayBox);
     playAgainButton.textContent = "Play again?";
     body.appendChild(playAgainButton);
 }
@@ -167,6 +174,5 @@ scissorsButton.addEventListener("click", () => {
 
 
 //To-Do
-//1. Say what the computer chose each round when it says the results of the round
-//2. intro text, first to 5 wins, etc.
-//3. add a restart game button
+//1. intro text, first to 5 wins, etc.
+//2. add a restart game button
