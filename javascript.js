@@ -84,6 +84,11 @@ let selectionBox = document.createElement("div");
 let choicesDisplayBox = document.createElement("div");
 let scoresDisplayBox = document.createElement("div");
 let systemDisplayBox = document.createElement("div");
+let header = document.querySelector("#header");
+let rulesIntro = document.querySelector("#rules-intro");
+let rulesMain = document.querySelector("#rules-main");
+let rulesEnd = document.querySelector("#rules-end");
+let teaser = document.querySelector("#teaser");
 
 
 let startButton = document.querySelector(".start-button");
@@ -123,6 +128,10 @@ function startGame() {
     systemDisplayBox.classList.add("system-display-box");
     body.appendChild(systemDisplayBox);
     body.removeChild(startButton);
+    rulesIntro.style.display = "none"
+    rulesMain.style.display = "none"
+    rulesEnd.style.display = "none"
+    teaser.style.display = "none"
 }
 
 function checkGameStatus() {
