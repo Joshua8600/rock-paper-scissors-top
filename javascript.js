@@ -189,3 +189,9 @@ scissorsButton.addEventListener("click", () => {
 });
 
 restartGameButton.addEventListener("click", restartGame);
+
+//To-Do
+//1. Make "Play Again!" and "Restart" buttons go straight into another match, skipping the start sequence
+    //feedback from TOP Discord server
+//2. Add a new "Quit" button that actually does go back to the start sequence
+    //feedback from TOP Discord server
