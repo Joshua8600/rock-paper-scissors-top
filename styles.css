@@ -10,8 +10,14 @@ span {
 
 li {
     list-style-position: inside;
-    text-align: center;
+    text-align: left;
     margin: 0px auto;
+}
+
+ul {
+    max-width: 210px;
+    text-align: left;
+    padding: 0px;
 }
 
 #rules-intro {
@@ -22,7 +28,6 @@ li {
 #rules-main {
     text-align: left;
     margin: auto;
-    max-width: 500px;
     color: darkmagenta;
 }
 
@@ -74,6 +79,7 @@ li {
     background-color: aquamarine;
     color: red;
     font-size: 50px;
+    margin-top: 0px;
 }
 
 .restart-game-button {
@@ -85,6 +91,5 @@ li {
 .finish-message {
     border-style: solid;
     border-color: brown;
-    width: 500px;
     margin: 20px auto;
 }
