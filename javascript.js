@@ -35,6 +35,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
         consoleDisplay.textContent = drawMessage;
+        checkGameStatus()
         //endRound();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "scissors") {
         //alert(winMessage);
@@ -44,6 +45,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
         consoleDisplay.textContent = winMessage;
+        checkGameStatus()
         //endRound();
     } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") {
         //alert(loseMessage);
@@ -53,6 +55,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
         consoleDisplay.textContent = loseMessage;
+        checkGameStatus()
         //endRound();
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "rock") {
         //alert(winMessage);
@@ -62,6 +65,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
         consoleDisplay.textContent = winMessage;
+        checkGameStatus()
     } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") {
         //alert(loseMessage);
         ++computerScore;
@@ -78,6 +82,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
         consoleDisplay.textContent = winMessage;
+        checkGameStatus()
     } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") {
         //alert(loseMessage);
         ++computerScore;
@@ -86,6 +91,7 @@ function playRound(humanChoice, computerChoice) { //play a round
         computerScoreDisplay.textContent = `Opponent's score: ${computerScore}`;
         roundCounterDisplay.textContent = `Round: ${roundCounter}`;
         consoleDisplay.textContent = loseMessage;
+        checkGameStatus()
     }
 }
 
@@ -97,11 +103,15 @@ let humanScoreDisplay = document.createElement("h3");
 let computerScoreDisplay = document.createElement("h3");
 let roundCounterDisplay = document.createElement("h3");
 let consoleDisplay = document.createElement("h3");
+let finishMessage = document.createElement("h1");
+let restartButton = document.createElement("button");
 
 
 //Start Game
 let startButton = document.querySelector(".start-button");
-startButton.addEventListener("click", () => {
+startButton.addEventListener("click", startGame)
+
+function startGame() {
     rockButton.classList.add("rock-button");
     rockButton.classList.add("choice-button");
     rockButton.textContent = "Rock";
@@ -123,66 +133,61 @@ startButton.addEventListener("click", () => {
     body.appendChild(roundCounterDisplay);
     consoleDisplay.textContent = "Game Status: Not Started"
     body.appendChild(consoleDisplay);
-})
+}
 
-function playGame() {
-    let finishMessage = document.createElement("h1");
+function checkGameStatus() {
     body.appendChild(finishMessage);
     if (humanScore == 5 || computerScore == 5) {
         finishMessage.innerText = `Game Over!\n`;
         if (humanScore == 5) {
             finishMessage.innerText += `You win!\nCongratulations!`;
+            endGame();
         } else {
             finishMessage.innerText += `You Lose!\nComputer Wins!\nTry again next time!`;
+            endGame();
         }
-    } else {
-        playRound(humanChoice, computerChoice);
     }
-} 
+}
+
+function endGame() {
+    body.removeChild(rockButton);
+    body.removeChild(paperButton);
+    body.removeChild(scissorsButton);
+    body.removeChild(humanScoreDisplay);
+    body.removeChild(computerScoreDisplay);
+    body.removeChild(roundCounterDisplay);
+    body.removeChild(consoleDisplay);
+    restartButton.textContent = "Play again?";
+    body.appendChild(restartButton);
+}
+
+restartButton.addEventListener("click", restartGame);
+
+function restartGame() {
+    location.reload();
+}
 
 
 rockButton.addEventListener("click", () => {
     humanChoice = "rock";
     computerChoice = getComputerChoice();
-    playGame();
-    //console.log(humanChoice);
-    //console.log(computerChoice);
+    playRound(humanChoice, computerChoice);
     });
 
 paperButton.addEventListener("click", () => {
     humanChoice = "paper";
     computerChoice = getComputerChoice();
-    playGame();
-    //console.log(humanChoice);
-    //console.log(computerChoice);
+    playRound(humanChoice, computerChoice);
 });
 scissorsButton.addEventListener("click", () => {
     humanChoice = "scissors";
     computerChoice = getComputerChoice();
-    playGame();
-    //console.log(humanChoice);
-    //console.log(computerChoice);
+    playRound(humanChoice, computerChoice);
 });
-
-
-
-
-
-
-//playGame(); //Temp comment out when developing the GUI
 
 
 
 
 //To-Do
-//1. add a confirmation to play again
-//2. If the game is cancelled, prompt to refresh to start over
-//3. prompt to refresh to to play again when it ends
-//4. Initial prompt message - remove/change default value, and possibly give more guidance in the prompt message itself
-    //feedback from TOP Discord server
-//5. If an invalid entry is entered, skip the showing scores part of the loop
-    //feedback from TOP Discord server
-//6. In a best of 5, 3 points wins no matter what. End game early, with new message, and declare winner once human or CPU reaches 3 points.
-//7. Say what the computer chose each round when it says the results of the round
-//8. Prompt to set the total round number for the game. instead of defaulting to only 5
-//9. Expansion of item (6) where if impossible to win with remaining rounds (2-0 with 1 round left), it automatically ends and declares winner.
+//1. Say what the computer chose each round when it says the results of the round
+//2. intro text, first to 5 wins, etc.
