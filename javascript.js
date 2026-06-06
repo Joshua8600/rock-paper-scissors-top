@@ -157,8 +157,10 @@ function endGame() {
     body.removeChild(choicesDisplayBox);
     body.removeChild(scoresDisplayBox);
     body.removeChild(systemDisplayBox);
+    body.removeChild(restartGameButton);
     playAgainButton.textContent = "Play again?";
     body.appendChild(playAgainButton);
+
 }
 
 playAgainButton.addEventListener("click", restartGame);
