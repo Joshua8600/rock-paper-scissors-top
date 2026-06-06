@@ -84,6 +84,7 @@ let selectionBox = document.createElement("div");
 let choicesDisplayBox = document.createElement("div");
 let scoresDisplayBox = document.createElement("div");
 let systemDisplayBox = document.createElement("div");
+let restartGameButton = document.createElement("button");
 let header = document.querySelector("#header");
 let rulesIntro = document.querySelector("#rules-intro");
 let rulesMain = document.querySelector("#rules-main");
@@ -132,6 +133,9 @@ function startGame() {
     rulesMain.style.display = "none"
     rulesEnd.style.display = "none"
     teaser.style.display = "none"
+    restartGameButton.textContent = "Restart Game";
+    restartGameButton.classList.add("restart-game-button");
+    body.appendChild(restartGameButton);
 }
 
 function checkGameStatus() {
@@ -163,7 +167,6 @@ function restartGame() {
     location.reload();
 }
 
-
 rockButton.addEventListener("click", () => {
     humanChoice = "Rock";
     computerChoice = getComputerChoice();
@@ -181,7 +184,4 @@ scissorsButton.addEventListener("click", () => {
     playRound(humanChoice, computerChoice);
 });
 
-
-//To-Do
-//1. intro text, first to 5 wins, etc.
-//2. add a restart game button
+restartGameButton.addEventListener("click", restartGame);
