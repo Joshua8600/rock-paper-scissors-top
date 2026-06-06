@@ -98,15 +98,15 @@ startButton.addEventListener("click", startGame)
 function startGame() {
     rockButton.classList.add("rock-button");
     rockButton.classList.add("choice-button");
-    rockButton.textContent = "Rock";
+    rockButton.innerHTML = "Rock &#129704;";
     selectionBox.appendChild(rockButton);
     paperButton.classList.add("paper-button");
     paperButton.classList.add("choice-button");
-    paperButton.textContent = "Paper";
+    paperButton.innerHTML = "Paper &#128196;";
     selectionBox.appendChild(paperButton);
     scissorsButton.classList.add("scissors-button");
     scissorsButton.classList.add("choice-button");
-    scissorsButton.textContent = "Scissors";
+    scissorsButton.innerHTML = "Scissors &#9986;";
     selectionBox.appendChild(scissorsButton);
     selectionBox.classList.add("selection-box");
     body.appendChild(selectionBox);
@@ -139,8 +139,9 @@ function startGame() {
 }
 
 function checkGameStatus() {
-    body.appendChild(finishMessage);
+    finishMessage.classList.add("finish-message");
     if (humanScore == 5 || computerScore == 5) {
+        body.appendChild(finishMessage);
         finishMessage.innerText = `Game Over!\n`;
         if (humanScore == 5) {
             finishMessage.innerText += `You win!\nCongratulations!`;
@@ -159,6 +160,7 @@ function endGame() {
     body.removeChild(systemDisplayBox);
     body.removeChild(restartGameButton);
     playAgainButton.textContent = "Play again?";
+    playAgainButton.classList.add("play-again-button");
     body.appendChild(playAgainButton);
 
 }
