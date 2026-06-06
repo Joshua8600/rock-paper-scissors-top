@@ -98,15 +98,15 @@ startButton.addEventListener("click", startGame)
 function startGame() {
     rockButton.classList.add("rock-button");
     rockButton.classList.add("choice-button");
-    rockButton.innerHTML = "Rock &#129704;";
+    rockButton.innerText = "Rock \u{1FAA8}";
     selectionBox.appendChild(rockButton);
     paperButton.classList.add("paper-button");
     paperButton.classList.add("choice-button");
-    paperButton.innerHTML = "Paper &#128196;";
+    paperButton.innerText = "Paper \u{1F4C4}";
     selectionBox.appendChild(paperButton);
     scissorsButton.classList.add("scissors-button");
     scissorsButton.classList.add("choice-button");
-    scissorsButton.innerHTML = "Scissors &#9986;";
+    scissorsButton.innerText = "Scissors \u{2702}";
     selectionBox.appendChild(scissorsButton);
     selectionBox.classList.add("selection-box");
     body.appendChild(selectionBox);
