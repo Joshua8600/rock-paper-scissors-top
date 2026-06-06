@@ -159,7 +159,7 @@ function endGame() {
     body.removeChild(scoresDisplayBox);
     body.removeChild(systemDisplayBox);
     body.removeChild(restartGameButton);
-    playAgainButton.textContent = "Play again?";
+    playAgainButton.textContent = "Play Again!";
     playAgainButton.classList.add("play-again-button");
     body.appendChild(playAgainButton);
 

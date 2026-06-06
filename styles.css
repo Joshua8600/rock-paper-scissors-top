@@ -73,6 +73,7 @@ li {
 .play-again-button {
     background-color: aquamarine;
     color: red;
+    font-size: 50px;
 }
 
 .restart-game-button {
