@@ -2,7 +2,11 @@
 
 This project is the first project in the "JavaScript Basics" module in the "Foundations" course of The Odin Project (TOP).
 
-This project will be revisited later in the curriculum (what I will call "Phase Two" of this project), and that will incorporate programming a GUI. This Phase One of this project's user-interactivity includes only a prompt, with an alert response (and console logging).
+This project was completed in two phases at separate intervals as directed by TOP's curriculum:
+
+-Phase 1: This project's user-interactivity includes only a prompt, with an alert response (and console logging).
+
+-Phase 2: Incorporating an interactive GUI.
 
 PHASE 1 COMPLETE
 
@@ -20,7 +24,7 @@ While doing the lessons for The Odin Project from the last phase up until this o
 
 But as I was reading the lessons, doing the exercises, I was already thinking how I could apply these concepts to the GUI for this project.
 
-And honestly? This went pretty smoothly?
+And honestly? This went pretty smoothly!
 
 Sure, there were several parts where I got stuck and had to Google something, or when I was trying to do something entirely new, but that's all part of the process!
 
